@@ -1,9 +1,9 @@
 use v6.c;
-unit module P5chr:ver<0.0.1>;
+unit module P5chr:ver<0.0.2>;
 
 proto sub chr(|) is export {*}
-multi sub chr() { chr CALLERS::<$_>     }
-multi sub chr(Int() $n is copy) {
+multi sub chr(--> Str:D) { chr CALLERS::<$_> }
+multi sub chr(Int() $n is copy --> Str:D) {
     role InvalidChr { has $.ord }
 
     $n < 0
@@ -23,11 +23,11 @@ P5chr - Implement Perl 5's chr() built-in
 
   use P5chr; # exports chr()
 
-  chr $a;
-  chr @a;
-  chr %h;
-  chr($a,$b);
-  chr();      # bare chr may be compilation error to prevent P5isms in Perl 6
+  my $a = 65;
+  say chr $a;
+
+  $_ = 65;
+  say chr();      # bare chr may be compilation error to prevent P5isms in Perl 6
 
 =head1 DESCRIPTION
 

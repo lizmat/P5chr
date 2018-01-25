@@ -10,11 +10,11 @@ SYNOPSIS
 
     use P5chr; # exports chr()
 
-    chr $a;
-    chr @a;
-    chr %h;
-    chr($a,$b);
-    chr();      # bare chr may be compilation error to prevent P5isms in Perl 6
+    my $a = 65;
+    say chr $a;
+
+    $_ = 65;
+    say chr();      # bare chr may be compilation error to prevent P5isms in Perl 6
 
 DESCRIPTION
 ===========
