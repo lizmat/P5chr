@@ -1,6 +1,8 @@
 Revision history for P5chr
 
 {{$NEXT}}
+
+0.0.5  2018-05-20T00:16:58+02:00
     - Added authority information
     - Added original Perl 5 documentation
 
