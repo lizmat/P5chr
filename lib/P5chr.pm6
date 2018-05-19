@@ -1,5 +1,6 @@
 use v6.c;
-unit module P5chr:ver<0.0.4>;
+
+unit module P5chr:ver<0.0.5>:auth<cpan:ELIZABETH>;
 
 proto sub chr(|) is export {*}
 multi sub chr(--> Str:D) { chr CALLERS::<$_> }
@@ -41,8 +42,34 @@ P5chr - Implement Perl 5's chr() / ord() built-ins
 
 =head1 DESCRIPTION
 
-This module tries to mimic the behaviour of the C<chr> and C<ord> built-ins
+This module tries to mimic the behaviour of the C<chr> and C<ord> functions
 of Perl 5 as closely as possible.
+
+=head1 ORIGINAL PERL 5 DOCUMENTATION
+
+    chr NUMBER
+    chr     Returns the character represented by that NUMBER in the character
+            set. For example, "chr(65)" is "A" in either ASCII or Unicode, and
+            chr(0x263a) is a Unicode smiley face.
+
+            Negative values give the Unicode replacement character
+            (chr(0xfffd)), except under the bytes pragma, where the low eight
+            bits of the value (truncated to an integer) are used.
+
+            If NUMBER is omitted, uses $_.
+
+            For the reverse, use "ord".
+
+            Note that characters from 128 to 255 (inclusive) are by default
+            internally not encoded as UTF-8 for backward compatibility
+            reasons.
+
+    ord EXPR
+    ord     Returns the numeric value of the first character of EXPR. If EXPR
+            is an empty string, returns 0. If EXPR is omitted, uses $_. (Note
+            character, not byte.)
+
+            For the reverse, see "chr".
 
 =head1 AUTHOR
 

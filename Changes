@@ -1,6 +1,8 @@
 Revision history for P5chr
 
 {{$NEXT}}
+    - Added authority information
+    - Added original Perl 5 documentation
 
 0.0.4  2018-04-12T12:59:07+02:00
     - Merge ord() code in here to reduce number of CPAN5 distributions.
