@@ -1,6 +1,6 @@
 use v6.c;
 
-unit module P5chr:ver<0.0.5>:auth<cpan:ELIZABETH>;
+unit module P5chr:ver<0.0.6>:auth<cpan:ELIZABETH>;
 
 proto sub chr(|) is export {*}
 multi sub chr(--> Str:D) { chr CALLERS::<$_> }
@@ -22,7 +22,7 @@ multi sub ord(Str() $s --> Int:D) { $s.ord }
 
 =head1 NAME
 
-P5chr - Implement Perl 5's chr() / ord() built-ins
+P5chr - Implement Perl's chr() / ord() built-ins
 
 =head1 SYNOPSIS
 
@@ -32,18 +32,18 @@ P5chr - Implement Perl 5's chr() / ord() built-ins
   say chr $a;
 
   $_ = 65;
-  say chr();   # bare chr may be compilation error to prevent P5isms in Perl 6
+  say chr();   # bare chr may be compilation error to prevent P5isms in Raku
 
   my $a = "A";
   say ord $a;
 
   $_ = "A";
-  say ord();   # bare ord may be compilation error to prevent P5isms in Perl 6
+  say ord();   # bare ord may be compilation error to prevent P5isms in Raku
 
 =head1 DESCRIPTION
 
 This module tries to mimic the behaviour of the C<chr> and C<ord> functions
-of Perl 5 as closely as possible.
+of Perl as closely as possible.
 
 =head1 ORIGINAL PERL 5 DOCUMENTATION
 
@@ -80,9 +80,9 @@ Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018 Elizabeth Mattijsen
+Copyright 2018-2019 Elizabeth Mattijsen
 
-Re-imagined from Perl 5 as part of the CPAN Butterfly Plan.
+Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

@@ -2,6 +2,9 @@ Revision history for P5chr
 
 {{$NEXT}}
 
+0.0.6  2019-11-10T13:50:40+01:00
+    - changed Perl 6 to Raku, and Perl 5 to Perl
+
 0.0.5  2018-05-20T00:16:58+02:00
     - Added authority information
     - Added original Perl 5 documentation
