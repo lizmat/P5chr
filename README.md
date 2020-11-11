@@ -1,7 +1,7 @@
 NAME
 ====
 
-P5chr - Implement Perl's chr() / ord() built-ins
+Raku port of Perl's chr() / ord() built-ins
 
 SYNOPSIS
 ========
@@ -23,7 +23,7 @@ SYNOPSIS
 DESCRIPTION
 ===========
 
-This module tries to mimic the behaviour of the `chr` and `ord` functions of Perl as closely as possible.
+This module tries to mimic the behaviour of Perl's `chr` and `ord` built-ins as closely as possible in the Raku Programmming Language.
 
 ORIGINAL PERL 5 DOCUMENTATION
 =============================
@@ -52,6 +52,21 @@ ORIGINAL PERL 5 DOCUMENTATION
 
             For the reverse, see "chr".
 
+PORTING CAVEATS
+===============
+
+In future language versions of Raku, it will become impossible to access the `$_` variable of the caller's scope, because it will not have been marked as a dynamic variable. So please consider changing:
+
+    chr;
+
+to either:
+
+    chr($_);
+
+or, using the subroutine as a method syntax, with the prefix `.` shortcut to use that scope's `$_` as the invocant:
+
+    .&chr;
+
 AUTHOR
 ======
 
@@ -62,7 +77,7 @@ Source can be located at: https://github.com/lizmat/P5chr . Comments and Pull Re
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2018-2019 Elizabeth Mattijsen
+Copyright 2018-2020 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 

@@ -1,6 +1,6 @@
-use v6.c;
+use v6.d;
 
-unit module P5chr:ver<0.0.6>:auth<cpan:ELIZABETH>;
+unit module P5chr:ver<0.0.7>:auth<cpan:ELIZABETH>;
 
 proto sub chr(|) is export {*}
 multi sub chr(--> Str:D) { chr CALLERS::<$_> }
@@ -22,7 +22,7 @@ multi sub ord(Str() $s --> Int:D) { $s.ord }
 
 =head1 NAME
 
-P5chr - Implement Perl's chr() / ord() built-ins
+Raku port of Perl's chr() / ord() built-ins
 
 =head1 SYNOPSIS
 
@@ -42,8 +42,8 @@ P5chr - Implement Perl's chr() / ord() built-ins
 
 =head1 DESCRIPTION
 
-This module tries to mimic the behaviour of the C<chr> and C<ord> functions
-of Perl as closely as possible.
+This module tries to mimic the behaviour of Perl's C<chr> and C<ord> built-ins
+as closely as possible in the Raku Programmming Language.
 
 =head1 ORIGINAL PERL 5 DOCUMENTATION
 
@@ -71,6 +71,23 @@ of Perl as closely as possible.
 
             For the reverse, see "chr".
 
+=head1 PORTING CAVEATS
+
+In future language versions of Raku, it will become impossible to access the
+C<$_> variable of the caller's scope, because it will not have been marked as
+a dynamic variable.  So please consider changing:
+
+    chr;
+
+to either:
+
+    chr($_);
+
+or, using the subroutine as a method syntax, with the prefix C<.> shortcut
+to use that scope's C<$_> as the invocant:
+
+    .&chr;
+
 =head1 AUTHOR
 
 Elizabeth Mattijsen <liz@wenzperl.nl>
@@ -80,7 +97,7 @@ Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2018-2019 Elizabeth Mattijsen
+Copyright 2018-2020 Elizabeth Mattijsen
 
 Re-imagined from Perl as part of the CPAN Butterfly Plan.
 
@@ -88,4 +105,4 @@ This library is free software; you can redistribute it and/or modify it under th
 
 =end pod
 
-# vim: ft=perl6 expandtab sw=4
+# vim: expandtab shiftwidth=4
