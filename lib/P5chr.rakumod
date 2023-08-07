@@ -1,9 +1,7 @@
 use v6.d;
 
-unit module P5chr:ver<0.0.8>:auth<zef:lizmat>;
-
 proto sub chr(|) is export {*}
-multi sub chr(--> Str:D) { chr CALLERS::<$_> }
+multi sub chr(--> Str:D) { chr CALLER::LEXICAL::<$_> }
 multi sub chr(Int() $n is copy --> Str:D) {
     role InvalidChr { has $.ord }
 
@@ -15,7 +13,7 @@ multi sub chr(Int() $n is copy --> Str:D) {
 }
 
 proto sub ord(|) is export {*}
-multi sub ord(--> Int:D) { CALLERS::<$_>.ord }
+multi sub ord(--> Int:D) { CALLER::LEXICAL::<$_>.ord }
 multi sub ord(Str() $s --> Int:D) { $s.ord }
 
 =begin pod
@@ -91,6 +89,10 @@ to use that scope's C<$_> as the invocant:
 =head1 AUTHOR
 
 Elizabeth Mattijsen <liz@raku.rocks>
+
+If you like this module, or what I’m doing more generally, committing to a
+L<small sponsorship|https://github.com/sponsors/lizmat/>  would mean a great
+deal to me!
 
 Source can be located at: https://github.com/lizmat/P5chr . Comments and
 Pull Requests are welcome.
