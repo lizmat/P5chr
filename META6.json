@@ -10,16 +10,23 @@
   "description": "Raku port of Perl's chr() / ord() built-ins",
   "license": "Artistic-2.0",
   "name": "P5chr",
-  "perl": "6.d",
   "provides": {
     "P5chr": "lib/P5chr.rakumod"
   },
+  "raku": "6.c",
   "resources": [
   ],
   "source-url": "https://github.com/lizmat/P5chr.git",
+  "support": {
+    "bugtracker": "https://github.com/lizmat/P5chr/issues",
+    "email": "liz@raku.rocks",
+    "source": "https://github.com/lizmat/P5chr.git"
+  },
   "tags": [
     "PERL5",
-    "CPAN5"
+    "CPAN5",
+    "CHR",
+    "ORD"
   ],
   "test-depends": [
   ],

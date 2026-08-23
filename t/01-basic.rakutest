@@ -1,10 +1,12 @@
-use v6.*;
 use Test;
 use P5chr;
 
-plan 2;
+plan 6;
 
 ok defined(::('&chr')),       'is &chr imported?';
 ok defined(::('&ord')),       'is &ord imported?';
+
+dies-ok { chr() }, 'chr without args dies';
+dies-ok { ord() }, 'ord without args dies';
 
 # vim: expandtab shiftwidth=4
