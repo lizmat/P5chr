@@ -1,6 +1,8 @@
 Revision history for P5chr
 
 {{$NEXT}}
+
+0.0.10  2026-08-23T14:58:05+02:00
     - No longer support using the caller's topic variable
     - Modernize META, documentation and test file extensions
     - Add full coverage testing

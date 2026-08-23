@@ -1,7 +1,7 @@
 use Test;
 use P5chr;
 
-plan 6;
+plan 4;
 
 ok defined(::('&chr')),       'is &chr imported?';
 ok defined(::('&ord')),       'is &ord imported?';
